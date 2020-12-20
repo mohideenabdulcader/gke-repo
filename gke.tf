@@ -68,7 +68,7 @@
 
 resource "google_container_cluster" "unilever_cluster" {
   project  = "unilever-poc" # Replace with your Project ID, https://cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects
-  name     = "ul-gke-cluster-01"
+  name     = "ul-gke-cluster-02"
   location = "us-east4-a"
 
   min_master_version = "1.16"
