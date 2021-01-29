@@ -149,3 +149,30 @@ resource "google_container_node_pool" "windows_pool" {
   # The Linux node pool must be created before the Windows Server node pool.
   depends_on = [google_container_node_pool.linux_pool]
 }
+
+  # The Linux node pool must be created before the Windows Server node pool.
+  depends_on = [google_container_node_pool.linux_pool]
+}
+
+resource "google_compute_instance" "unileverdemo" {
+  name         = "unilever-demo"
+  machine_type = "f1-micro"
+  zone         = "us-east4-a"
+
+  tags = ["env", "development"]
+
+  boot_disk {
+    initialize_params {
+      image = "debian-cloud/debian-9"
+    }
+  }
+
+
+  network_interface {
+   subnetwork = "sbnt-ul-poc-01"
+
+    access_config {
+      // Ephemeral IP
+    }
+  }
+}
