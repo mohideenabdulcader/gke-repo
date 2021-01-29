@@ -150,10 +150,6 @@ resource "google_container_node_pool" "windows_pool" {
   depends_on = [google_container_node_pool.linux_pool]
 }
 
-  # The Linux node pool must be created before the Windows Server node pool.
-  depends_on = [google_container_node_pool.linux_pool]
-}
-
 resource "google_compute_instance" "unileverdemo" {
   name         = "unilever-demo"
   machine_type = "f1-micro"
